@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  demoidentity.server:
+    image: ${DOCKER_REGISTRY-}demoidentityserver
+    build:
+      context: .
+      dockerfile: DemoIdentity.Server/Dockerfile
+  demoidentity.client:
+    image: ${DOCKER_REGISTRY-}demoidentityclient
+    build:
+      context: .
+      dockerfile: DemoIdentity.Client/Dockerfile
+    depends_on:
+      - demoidentity.server

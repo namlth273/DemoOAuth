@@ -3,24 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoIdentity.Server", "DemoIdentity.Server\DemoIdentity.Server.csproj", "{B34683BA-C971-419D-94E6-EF743D966BC2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoIdentity.Client", "DemoIdentity.Client\DemoIdentity.Client.csproj", "{71AA2FC3-1808-4C45-853E-56203A3F1B06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E53DB3E0-CD8F-47FA-B871-EEA1C1F68B2B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoIdentity.Server", "DemoIdentity.Server\DemoIdentity.Server.csproj", "{55919540-53B0-40BE-A749-800BF2110BA3}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AE659823-8C47-4194-B40A-E93A5F2F305F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Docker|Any CPU = Docker|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B34683BA-C971-419D-94E6-EF743D966BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B34683BA-C971-419D-94E6-EF743D966BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B34683BA-C971-419D-94E6-EF743D966BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B34683BA-C971-419D-94E6-EF743D966BC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
+		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Docker|Any CPU.Build.0 = Docker|Any CPU
 		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71AA2FC3-1808-4C45-853E-56203A3F1B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Docker|Any CPU.Build.0 = Docker|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55919540-53B0-40BE-A749-800BF2110BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Docker|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Docker|Any CPU.Build.0 = Debug|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE659823-8C47-4194-B40A-E93A5F2F305F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
