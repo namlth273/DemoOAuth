@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>ae659823-8c47-4194-b40a-e93a5f2f305f</ProjectGuid>
+    <ProjectGuid>e9dc3a4e-6e6d-49ee-bdce-f1f0d9526dde</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>demoidentity.server</DockerServiceName>
