@@ -39,8 +39,8 @@ namespace DemoIdentity.Server
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris           = { "http://localhost:10001/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:10001/signout-callback-oidc" },
+                    RedirectUris           = { "https://localhost:44350/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:44350/signout-callback-oidc" },
 
                     AllowedScopes =
                     {

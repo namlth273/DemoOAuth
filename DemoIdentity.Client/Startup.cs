@@ -43,7 +43,7 @@ namespace DemoIdentity.Client
                 {
                     options.SignInScheme = "Cookies";
 
-                    options.Authority = "http://10.0.75.1:10000";
+                    options.Authority = Configuration.GetValue<string>("IDENTITY_AUTHORITY");
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = "mvc";

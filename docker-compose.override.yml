@@ -3,7 +3,7 @@ version: '3.4'
 services:
   db:
     image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    container_name: sql1
+    container_name: demooauth-db
     ports:
       - 1434:1433
     environment:
@@ -13,16 +13,17 @@ services:
       - demo-oauth-prod-network
   demoidentity.server:
     image: demo-oauth-server
-    container_name: identityserver1
+    container_name: demooauth-server
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      #- ASPNETCORE_URLS=https://+:443;http://+:80
-      #- ASPNETCORE_HTTPS_PORT=44349
-      - IDENTITY_ISSUER=http://10.0.75.1:10000
-      - ConnectionStrings__DefaultConnection=Server=sql1;Database=DemoOAuth;Persist Security Info=False;User ID=sa;Password=P@ssw0rd@123;
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44349
+      #- IDENTITY_ISSUER=http://10.0.75.1:10000
+      - IDENTITY_ISSUER=https://10.0.75.1:44349
+      - ConnectionStrings__DefaultConnection=Server=db;Database=DemoOAuth;Persist Security Info=False;User ID=sa;Password=P@ssw0rd@123;
     ports:
-      - "10000:80"
-      #- "44349:443"
+      #- "10000:80"
+      - "44349:443"
     depends_on:
       - db
     volumes:
@@ -32,15 +33,16 @@ services:
       - demo-oauth-prod-network
   demoidentity.client:
     image: demo-oauth-client
-    container_name: identityclient1
+    container_name: demooauth-client
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      #- ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=https://+:443;http://+:80
       #- ASPNETCORE_HTTPS_PORT=44350
-      - IDENTITY_Authority=http://10.0.75.1:10000
+      #- IDENTITY_AUTHORITY=http://10.0.75.1:10000
+      - IDENTITY_AUTHORITY=https://10.0.75.1:44349
     ports:
-      - "10001:80"
-      #- "44350:443"
+      #- "10001:80"
+      - "44350:443"
     depends_on:
       - demoidentity.server
     volumes:
