@@ -95,11 +95,13 @@ namespace DemoIdentity.Server
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
             app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();
+            app.UseHttpsRedirection();
 
             app.Run(async (context) =>
             {

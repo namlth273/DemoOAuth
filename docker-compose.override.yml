@@ -18,6 +18,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=44349
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/localhost.pfx
       #- IDENTITY_ISSUER=http://10.0.75.1:10000
       - IDENTITY_ISSUER=https://10.0.75.1:44349
       - ConnectionStrings__DefaultConnection=Server=db;Database=DemoOAuth;Persist Security Info=False;User ID=sa;Password=P@ssw0rd@123;
@@ -37,6 +39,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/localhost.pfx
       #- ASPNETCORE_HTTPS_PORT=44350
       #- IDENTITY_AUTHORITY=http://10.0.75.1:10000
       - IDENTITY_AUTHORITY=https://10.0.75.1:44349
