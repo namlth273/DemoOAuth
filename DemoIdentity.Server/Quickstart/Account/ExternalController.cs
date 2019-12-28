@@ -1,7 +1,6 @@
 using DemoIdentity.Server.Models;
 using IdentityModel;
 using IdentityServer4.Events;
-using IdentityServer4.Quickstart.UI;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
@@ -16,7 +15,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace Host.Quickstart.Account
+namespace DemoIdentity.Server.Quickstart.Account
 {
     [SecurityHeaders]
     [AllowAnonymous]

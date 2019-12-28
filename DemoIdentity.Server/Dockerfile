@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
 WORKDIR /app
-#EXPOSE 80
-EXPOSE 443
+EXPOSE 80
+#EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 COPY ["DemoIdentity.Server/DemoIdentity.Server.csproj", "DemoIdentity.Server/"]
 RUN dotnet restore "DemoIdentity.Server/DemoIdentity.Server.csproj"

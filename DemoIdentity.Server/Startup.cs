@@ -2,11 +2,11 @@
 using DemoIdentity.Server.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Reflection;
 
@@ -15,9 +15,9 @@ namespace DemoIdentity.Server
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
@@ -30,6 +30,8 @@ namespace DemoIdentity.Server
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
+            services.AddControllersWithViews();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
@@ -37,7 +39,7 @@ namespace DemoIdentity.Server
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => options.EnableEndpointRouting = false);
 
             //services.AddIdentityServer(a => a.IssuerUri = "http://10.0.75.1:10000")
             //    .AddInMemoryIdentityResources(Config.GetIdentityResources())
@@ -85,7 +87,7 @@ namespace DemoIdentity.Server
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -100,12 +102,15 @@ namespace DemoIdentity.Server
 
             app.UseStaticFiles();
             app.UseIdentityServer();
-            app.UseMvcWithDefaultRoute();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            app.UseRouting();
+            app.UseAuthorization();
 
-            app.Run(async (context) =>
+            app.UseEndpoints(endpoints =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
