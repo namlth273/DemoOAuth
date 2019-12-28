@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoIdentity.Server", "DemoIdentity.Server\DemoIdentity.Server.csproj", "{55919540-53B0-40BE-A749-800BF2110BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoIdentity.Client", "DemoIdentity.Client\DemoIdentity.Client.csproj", "{99C6BC2E-80E9-499F-8C23-4B2D9C2F8690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoIdentity.Client", "DemoIdentity.Client\DemoIdentity.Client.csproj", "{99C6BC2E-80E9-499F-8C23-4B2D9C2F8690}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E9DC3A4E-6E6D-49EE-BDCE-F1F0D9526DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoIdentity.Api", "DemoIdentity.Api\DemoIdentity.Api.csproj", "{17850C75-98C1-4CF9-A71C-6D760905F93C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,12 @@ Global
 		{E9DC3A4E-6E6D-49EE-BDCE-F1F0D9526DDE}.Docker|Any CPU.Build.0 = Debug|Any CPU
 		{E9DC3A4E-6E6D-49EE-BDCE-F1F0D9526DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9DC3A4E-6E6D-49EE-BDCE-F1F0D9526DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Docker|Any CPU.ActiveCfg = Debug|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Docker|Any CPU.Build.0 = Debug|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17850C75-98C1-4CF9-A71C-6D760905F93C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

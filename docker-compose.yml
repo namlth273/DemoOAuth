@@ -13,3 +13,9 @@ services:
       context: .
       dockerfile: DemoIdentity.Client/Dockerfile
 
+  demoidentity.api:
+    image: ${DOCKER_REGISTRY-}demoidentityapi
+    build:
+      context: .
+      dockerfile: DemoIdentity.Api/Dockerfile
+

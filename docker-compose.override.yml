@@ -49,6 +49,24 @@ services:
       - "44350:443"
     depends_on:
       - demoidentity.server
+      - demoidentity.api
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      - demo-oauth-prod-network
+  demoidentity.api:
+    image: demo-oauth-api
+    container_name: demooauth-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44351
+      - IDENTITY_AUTHORITY=http://10.0.75.1:10000
+    ports:
+      - "44351:443"
+    depends_on:
+      - demoidentity.server
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
