@@ -50,7 +50,7 @@ namespace DemoIdentity.Client
 
                     options.ClientId = "mvc";
                     options.ClientSecret = "secret";
-                    options.ResponseType = "code id_token";
+                    options.ResponseType = "code";
 
                     options.SaveTokens = true;
                     options.GetClaimsFromUserInfoEndpoint = true;

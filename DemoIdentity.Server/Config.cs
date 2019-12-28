@@ -27,12 +27,22 @@ namespace DemoIdentity.Server
         {
             return new List<Client>
             {
+                // machine to machine client
+                new Client
+                {
+                    ClientId = "client",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
+
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    // scopes that client has access to
+                    AllowedScopes = { "api1" }
+                },
                 // OpenID Connect hybrid flow client (MVC)
                 new Client
                 {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
-                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedGrantTypes = GrantTypes.Code,
 
                     ClientSecrets =
                     {
